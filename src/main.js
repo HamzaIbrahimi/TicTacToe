@@ -5,5 +5,6 @@ const gameBoard = new GameBoard();
 gameBoard.createBoard();
 const player = new Player("Tom", "X");
 console.log(player.getPlayerSymbol());
+gameBoard.addSymbolToSquare(0, "X");
 
-console.log(gameBoard.getGameBoardArray());
+gameBoard.clearGameBoardArray();
