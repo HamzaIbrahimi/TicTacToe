@@ -17,4 +17,14 @@ export class GameBoard {
   getGameBoardArray() {
     return this.gameBoardArray;
   }
+
+  addSymbolToSquare(squareNum, symbol) {
+    this.gameBoardArray[squareNum].textContent = symbol;
+  }
+
+  clearGameBoardArray() {
+    this.gameBoardArray.forEach((val) => {
+      val.textContent = "";
+    });
+  }
 }
