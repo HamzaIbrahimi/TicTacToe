@@ -20,6 +20,9 @@ export class GameBoard {
 
   addSymbolToSquare(squareNum, symbol) {
     this.gameBoardArray[squareNum].textContent = symbol;
+    this.gameBoardArray[
+      squareNum
+    ].style.cssText = `color: yellow; font-size: 70px; display:grid; place-items: center; font-family: "Roboto", sans-serif, times-new-roman`;
   }
 
   clearGameBoardArray() {
