@@ -17,16 +17,19 @@
 
 body {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    gap: 30px;
     background-color: black;
+}
+
+.container {
+    display: flex; 
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 h1 {
     color: #ee6352;
+    text-align: center;
 }
 
 #game_container {
@@ -45,4 +48,46 @@ h1 {
 
 .square_box:hover {
     border: 4px solid white;
+}
+
+#form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+}
+
+input {
+    background-color: #333; 
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px; 
+    color: #fff; 
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    text-align: center;
+}
+
+input:focus {
+    background-color: #444; /* Slightly lighter background on focus */
+    box-shadow: 0 0 10px rgba(0, 150, 255, 0.5); /* Blue glowing effect */
+}
+
+input::placeholder {
+    color: #aaa; /* Light grey placeholder text */
+}
+
+#form button {
+    justify-self: center;
+    align-items: end;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+#form button:hover {
+    border: 3px solid yellow;
+    padding: 10px 30px;
+    transition: 200ms ease-in;
 }
