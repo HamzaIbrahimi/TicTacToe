@@ -14,6 +14,10 @@ export class GameBoard {
     }
   }
 
+  getGameBoardArray() {
+    return this.gameBoardArray;
+  }
+
   addSymbolToSquare(squareNum, symbol) {
     this.gameBoardArray[squareNum].textContent = symbol;
     this.gameBoardArray[
