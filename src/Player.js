@@ -4,11 +4,11 @@ export class Player {
     this.player_symbol = player_symbol;
   }
 
-  getPlayerName() {
+  getName() {
     return this.player_name;
   }
 
-  getPlayerSymbol() {
+  getSymbol() {
     return this.player_symbol;
   }
 }
