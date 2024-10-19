@@ -43,7 +43,11 @@ h1 {
 
 .square_box {
     border: 1px solid white;
-
+    color: yellow; 
+    font-size: 70px;
+    display:grid; 
+    place-items: center;
+    font-family: "Roboto", sans-serif, times-new-roman;
 }
 
 .square_box:hover {
