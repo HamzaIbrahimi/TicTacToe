@@ -13,6 +13,14 @@ class GameFlow {
     this.gameBoard.addSymbolToSquare(index, player.getSymbol());
   }
 }
+
+const form = document.querySelector("#form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const one = document.querySelector("#player_1");
+  const two = document.querySelector("#player_2");
+  console.log(one.value, two.value);
+});
 const player1 = new Player("Tom", "X");
 const player2 = new Player("Bob", "O");
 
