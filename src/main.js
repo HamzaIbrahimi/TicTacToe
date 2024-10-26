@@ -13,6 +13,7 @@ class GameFlow {
     this.turn = 0;
     this.whosTurn = document.querySelector("h3");
     this.whosTurn.textContent = `${player1.getName()} goes first with ${player1.getSymbol()}!`;
+    this.restartButton = document.querySelector("#restart_button");
   }
 
   playTurn(index, player) {
@@ -43,6 +44,10 @@ class GameFlow {
       declareWinner(this.array, this.whosTurn, this.player1, this.player2);
     }
   };
+
+  reset = () => {
+    this.gameBoard.clearGameBoardArray();
+  };
 }
 
 const form = document.querySelector("#form");
@@ -56,7 +61,7 @@ form.addEventListener("submit", (e) => {
   game.gameContainer.addEventListener("click", game.ticTacToe);
   form.style.display = "None";
   game.gameBoard.body.style.display = "flex";
-  game.gameBoard.body.style.gap = "5px";
+  game.gameBoard.body.style.gap = "10px";
   game.gameBoard.body.style.justifyContent = "flex-start";
   game.gameBoard.body.style.flexDirection = "column";
 });
