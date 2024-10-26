@@ -31,10 +31,13 @@ export const declareWinner = (arr, winnerText, player1, player2) => {
 
   if (resultArray.some((elem) => elem.textContent == "X")) {
     winnerText.textContent = `${player1.getName()} wins!`;
+    player1.increaseScore();
   } else if (resultArray.some((elem) => elem.textContent == "O")) {
     winnerText.textContent = `${player2.getName()} wins!`;
+    player2.increaseScore();
+  } else if (arr.every((elem) => elem.textContent.length != 0)) {
+    winnerText.textContent = "DRAW!";
   }
-
   const change = () => {
     resultArray.forEach((elem) => {
       elem.style.border = "3px solid yellow";
@@ -48,4 +51,17 @@ export const declareWinner = (arr, winnerText, player1, player2) => {
 
   setInterval(change, 500);
   setInterval(change2, 1000);
+
+  scoreBoard(resultArray, player1, player2);
+};
+
+const scoreBoard = (arr, player1, player2) => {
+  const scoreBoardPlayerOne = document.querySelector(".player1_result");
+  const scoreBoardPlayerTwo = document.querySelector(".player2_result");
+  if (arr.length == 3) {
+    scoreBoardPlayerOne.style.display = "grid";
+    scoreBoardPlayerTwo.style.display = "grid";
+    scoreBoardPlayerOne.textContent = `${player1.getName()}'s score  ${player1.getScore()}`;
+    scoreBoardPlayerTwo.textContent = `${player2.getName()}'s score  ${player2.getScore()}`;
+  }
 };
