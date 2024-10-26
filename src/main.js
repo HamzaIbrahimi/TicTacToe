@@ -1,5 +1,6 @@
 import { GameBoard } from "./Gameboard.js";
 import { Player } from "./Player.js";
+import { declareWinner } from "./gameWinLogic.js";
 
 class GameFlow {
   constructor(player1, player2) {
@@ -39,7 +40,7 @@ class GameFlow {
       if (this.turn > 8) {
         this.whosTurn.textContent = "";
       }
-      declareWinner(this.array);
+      declareWinner(this.array, this.whosTurn, this.player1, this.player2);
     }
   };
 }
