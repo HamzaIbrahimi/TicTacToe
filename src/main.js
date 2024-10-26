@@ -10,6 +10,8 @@ class GameFlow {
     this.player1 = player1;
     this.player2 = player2;
     this.turn = 0;
+    this.whosTurn = document.querySelector("h3");
+    this.whosTurn.textContent = `${player1.getName()} goes first with ${player1.getSymbol()}!`;
   }
 
   playTurn(index, player) {
@@ -24,14 +26,20 @@ class GameFlow {
     if (e.target && e.target.className.includes("square_box")) {
       let index = e.target.className.split(" ")[0].at(-1);
       if (this.turn % 2 == 0 && e.target.textContent.length == 0) {
+        this.whosTurn.textContent = `${this.player2.getName()}'s turn with symbol ${this.player2.getSymbol()}`;
         this.turn++;
         this.playTurn(index, this.player1);
       } else if (this.turn % 2 != 0 && e.target.textContent.length == 0) {
+        this.whosTurn.textContent = `${this.player1.getName()}'s turn with symbol ${this.player1.getSymbol()}`;
         this.turn++;
         this.playTurn(index, this.player2);
-      } else {
-        return;
+      } else if (e.target.textContent.length != 0) {
+        e.target.style.pointerEvents = "none";
       }
+      if (this.turn > 8) {
+        this.whosTurn.textContent = "";
+      }
+      declareWinner(this.array);
     }
   };
 }
@@ -46,5 +54,8 @@ form.addEventListener("submit", (e) => {
   const game = new GameFlow(player_1, player_2);
   game.gameContainer.addEventListener("click", game.ticTacToe);
   form.style.display = "None";
-  game.gameBoard.body.style.justifyContent = "center";
+  game.gameBoard.body.style.display = "flex";
+  game.gameBoard.body.style.gap = "5px";
+  game.gameBoard.body.style.justifyContent = "flex-start";
+  game.gameBoard.body.style.flexDirection = "column";
 });
