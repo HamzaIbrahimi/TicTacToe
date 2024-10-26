@@ -27,7 +27,7 @@ body {
     gap: 10px;
 }
 
-h1 {
+h1, h3 {
     color: #ee6352;
     text-align: center;
 }
