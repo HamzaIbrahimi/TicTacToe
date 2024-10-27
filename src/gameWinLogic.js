@@ -43,15 +43,7 @@ export const declareWinner = (arr, winnerText, player1, player2) => {
       elem.style.border = "3px solid yellow";
     });
   };
-  const change2 = () => {
-    resultArray.forEach((elem) => {
-      elem.style.border = "1px solid yellow";
-    });
-  };
-
-  setInterval(change, 500);
-  setInterval(change2, 1000);
-
+  change();
   scoreBoard(resultArray, player1, player2);
 };
 
