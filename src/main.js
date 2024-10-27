@@ -38,9 +38,6 @@ class GameFlow {
       } else if (e.target.textContent.length != 0) {
         e.target.style.pointerEvents = "none";
       }
-      if (this.turn > 8) {
-        this.whosTurn.textContent = "";
-      }
       declareWinner(this.array, this.whosTurn, this.player1, this.player2);
     }
   };
@@ -50,8 +47,7 @@ class GameFlow {
   };
 }
 
-const form = document.querySelector("#form");
-form.addEventListener("submit", (e) => {
+function fullGame(e) {
   e.preventDefault();
   const one = document.querySelector("#player_1");
   const two = document.querySelector("#player_2");
@@ -64,4 +60,14 @@ form.addEventListener("submit", (e) => {
   game.gameBoard.body.style.gap = "10px";
   game.gameBoard.body.style.justifyContent = "flex-start";
   game.gameBoard.body.style.flexDirection = "column";
-});
+  game.restartButton.addEventListener("click", () => {
+    game.reset();
+    game.array.forEach((elem) => {
+      elem.style.pointerEvents = "";
+      elem.style.border = "1px solid white";
+    });
+  });
+}
+
+const form = document.querySelector("#form");
+form.addEventListener("click", fullGame);
