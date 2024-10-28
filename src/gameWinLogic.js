@@ -38,12 +38,12 @@ export const declareWinner = (arr, winnerText, player1, player2) => {
   } else if (arr.every((elem) => elem.textContent.length != 0)) {
     winnerText.textContent = "DRAW!";
   }
-  const change = () => {
+  const applyYellowBorderToWinArea = () => {
     resultArray.forEach((elem) => {
       elem.style.border = "3px solid yellow";
     });
   };
-  change();
+  applyYellowBorderToWinArea();
   scoreBoard(resultArray, player1, player2);
 };
 
