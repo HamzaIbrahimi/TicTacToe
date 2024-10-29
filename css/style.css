@@ -111,4 +111,8 @@ input::placeholder {
     height: 50px;
 }
 
+#restart_button {
+    display: none;
+}
+
 
