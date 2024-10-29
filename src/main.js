@@ -20,10 +20,6 @@ class GameFlow {
     this.gameBoard.addSymbolToSquare(index, player.getSymbol());
   }
 
-  getTurn = () => {
-    return this.turn;
-  };
-
   ticTacToe = (e) => {
     if (e.target && e.target.className.includes("square_box")) {
       let index = e.target.className.split(" ")[0].at(-1);
@@ -60,6 +56,7 @@ function fullGame(e) {
   game.gameBoard.body.style.gap = "10px";
   game.gameBoard.body.style.justifyContent = "flex-start";
   game.gameBoard.body.style.flexDirection = "column";
+  game.restartButton.style.display = "block";
   game.restartButton.addEventListener("click", () => {
     game.reset();
     game.array.forEach((elem) => {
