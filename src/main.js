@@ -14,6 +14,7 @@ class GameFlow {
     this.whosTurn = document.querySelector("h3");
     this.whosTurn.textContent = `${player1.getName()} goes first with ${player1.getSymbol()}!`;
     this.restartButton = document.querySelector("#restart_button");
+    this.form = document.querySelector("#form");
   }
 
   playTurn(index, player) {
@@ -51,7 +52,7 @@ function fullGame(e) {
   const player_2 = new Player(two.value, "O");
   const game = new GameFlow(player_1, player_2);
   game.gameContainer.addEventListener("click", game.ticTacToe);
-  form.style.display = "None";
+  game.form.style.display = "None";
   game.gameBoard.body.style.display = "flex";
   game.gameBoard.body.style.gap = "10px";
   game.gameBoard.body.style.justifyContent = "flex-start";
@@ -66,5 +67,5 @@ function fullGame(e) {
   });
 }
 
-const form = document.querySelector("#form");
-form.addEventListener("click", fullGame);
+const form_button = document.querySelector("#start_button");
+form_button.addEventListener("click", fullGame);
